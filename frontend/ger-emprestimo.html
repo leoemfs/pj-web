@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Página de Empréstimos</title>
+    <script src="api.js"></script>
+    <script src="emprestimo.js"></script>
+</head>
+
+<body>
+    <a href="index.html">index</a>
+    <h1>Cadastrar Empréstimo</h1>
+    <form id="emprestimo-form">
+        <label for="data_emprestimo">Data de Empréstimo:</label>
+        <input type="text" id="data_emprestimo" name="data_emprestimo"><br>
+
+        <label for="data_devolucao">Data de Devolução:</label>
+        <input type="text" id="data_devolucao" name="data_devolucao"><br>
+
+        <label for="status_emprestimo">Status do Empréstimo:</label>
+        <input type="text" id="status_emprestimo" name="status_emprestimo"><br>
+
+        <label for="fk_usuario">ID do Usuário:</label>
+        <input type="text" id="fk_usuario" name="fk_usuario"><br>
+
+        <label for="fk_item">ID do Item:</label>
+        <input type="text" id="fk_item" name="fk_item"><br>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('emprestimo-form');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const data_emprestimo = document.getElementById('data_emprestimo').value;
+            const data_devolucao = document.getElementById('data_devolucao').value;
+            const status_emprestimo = document.getElementById('status_emprestimo').value;
+            const fk_usuario = document.getElementById('fk_usuario').value;
+            const fk_item = document.getElementById('fk_item').value;
+
+            const emprestimo = {
+                data_emprestimo: data_emprestimo,
+                data_devolucao: data_devolucao,
+                status_emprestimo: status_emprestimo,
+                fk_usuario: fk_usuario,
+                fk_item: fk_item
+            };
+
+            // Enviar o objeto JSON para a API
+            api.post('/emprestimos', emprestimo)
+                .then(function (response) {
+                    console.log(response.data);
+                    // Lógica adicional, se necessário
+                })
+                .catch(function (error) {
+                    console.error(error);
+                    // Lógica de tratamento de erro, se necessário
+                });
+        });
+    </script>
+</body>
+
+</html>

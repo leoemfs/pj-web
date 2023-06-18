@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Acervo</title>
+</head>
+<body>
+    <h1>Gerenciar Acervo</h1>
+
+    <!-- Formulário para adicionar um novo item no acervo -->
+    <h2>Adicionar Item</h2>
+    <form id="addItemForm">
+        <label for="title">Título:</label>
+        <input type="text" id="title" name="title">
+        
+        <label for="author">Autor:</label>
+        <input type="text" id="author" name="author">
+        
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <!-- Tabela para exibir a lista de itens do acervo -->
+    <h2>Lista de Itens do Acervo</h2>
+    <table id="itemTable">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os dados dos itens serão preenchidos dinamicamente aqui -->
+        </tbody>
+    </table>
+
+    <!-- Scripts para manipulação dos dados -->
+    <script src="js/api.js"></script>
+    <script src="js/item.js"></script>
+</body>
+</html>
